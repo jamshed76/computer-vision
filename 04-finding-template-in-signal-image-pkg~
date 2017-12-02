@@ -1,0 +1,25 @@
+% Find template 1D
+% NOTE: Function definition must be the very first piece of code here!
+function index = find_template_1D(t, s)
+    % TODO: Locate template t in signal s and return index
+    % NOTE: Turn off all output from inside the function before submitting!
+    
+    % get first matching value of template in the signal
+    for i = 1:size(s,2)
+      if (s(i) != t(1))
+        continue;
+      endif
+      %found first matching template value in signal; let's compare next
+      index = i;
+      for j = 2:size(t,2)
+        if (t(j) != s(i+j-1))
+	  index = 0;
+	  break;
+	endif
+      endfor %end of inner loop
+      if (index)
+        return;
+      endif
+    endfor %end of outer loop
+    
+endfunction

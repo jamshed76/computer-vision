@@ -1,0 +1,14 @@
+% Apply a median filter
+pkg load image;
+
+%% Read an image
+img = imread('moon.png');  % also try: brooklyn-bridge.png, penny-farthing.png
+imshow(img);
+
+%% TODO: Add salt & pepper noise
+salt_n_pepper_img=imnoise(img, 'salt & pepper', 0.1);
+imshow(salt_n_pepper_img);
+
+%% TODO: Apply a median filter (how is the result different compared to Gaussian smoothing?)
+median_filtered_img=medfilt2(salt_n_pepper_img);
+imshow(median_filtered_img);

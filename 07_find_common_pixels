@@ -1,0 +1,20 @@
+% For Your Eyes Only
+pkg load image;
+
+frizzy = imread('frizzy.png');
+froomer = imread('froomer.png');
+%imshow(frizzy);
+%imshow(froomer);
+
+% TODO: Find edges in frizzy and froomer images
+frizzy_gray = rgb2gray(frizzy);
+%imshow(frizzy_gray);
+edge_frizzy = edge(frizzy_gray, 'canny');%
+%imshow(edge_frizzy);
+froomer_gray = rgb2gray(froomer);
+%imshow(froomer_gray);
+edge_froomer = edge(froomer_gray, 'canny');
+%imshow(edge_froomer);
+
+% TODO: Display common edge pixels
+imshow(edge_frizzy & edge_froomer);

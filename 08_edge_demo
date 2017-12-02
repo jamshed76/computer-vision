@@ -1,0 +1,42 @@
+% For Your Eyes Only
+pkg load image;
+
+% read an image
+% img = imread(image);
+% figure, imshow(img), title('Original image, color');
+
+% Convert to grayscale
+% img_gray = rgb2gray(img);
+% figure, imshow(img), title('Original image, gray');
+
+% Make a blurred/smoothed version
+% h = fspecial ('gaussian', [11 11], 4);
+% figure, surf(h);
+% img_smooth = imfliter(img, h);
+% figure, imshow (img_smooth), title('Smoothed img');
+
+% Method #1: Shift image by one pixel to left & right & show diff image
+% img_left = img_smooth;
+% copy all pixels from column 2 till end to 1 column to end-1
+% img_left(:[1:(end-1)]) = img_left(:, [2:end]);
+% repeat similar step of left to make right image
+% img_right = img_smooth;
+% img_right(:[1:(end-1)]) = img_left(:, [2:end]);
+% compute diff
+% img_diff = double(img_right) - double (img_left);
+% empty [] operator is used since value could be +ve or -ve
+% figure, imshow(img_diff, []), title('Difference b/w right & left shifted img');
+
+% Method #2: Canny Edge Operator
+% img_canny = edge(img, 'canny');
+% figure, imshow(img_canny), title('Original Edge');
+% img_smoothed_canny = edge(img_smooth, 'canny');
+% figure, imshow(img_smoothed_canny), title('Smoothed image Edges');
+
+% Method #3: Laplacian of Gaussian
+% img_log_edge = edge(img_gray, 'log');
+% figure, imshow(img_log_edge), title('Laplacian of Gaussian Edge');
+
+
+
+
